@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once( "../models/models_admin.php");
+require_once( "models/models_admin.php");
 
 class ConsultasDB extends DBConfig {
     					
