@@ -68,4 +68,15 @@ class ExtraerDatos extends ConsultasDB
 	
 }//fin CLASE
 
+$objDB = new ExtraerDatos();
+
+  $prods = array();
+  $prods = $objDB->listadopersonas();
+
+//   if($prods=== 0){
+// 	echo 'no hay';
+//   }else{
+// 	echo 'si hay';
+//   }
+
 ?>

@@ -1,5 +1,5 @@
 <?php
 	
-	$mysqli = new mysqli("localhost", "root", "12345678", "db_scaner");
+	$mysqli = new mysqli("localhost", "root", "123456789", "db_scaner");
 	
 ?>

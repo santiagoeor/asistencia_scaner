@@ -78,10 +78,10 @@
                             <source src="../Audios/failes.mp3" type="audio/ogg">
                         </audio>
 
-                        <h4>SCANER</h4>
-                        <div>Estudiante</div>
+                        <!-- <h4>SCANER</h4>
+                        <div>Estudiante</div> -->
                         <form action="">
-                            <input type="text" name="start" class="input" id="result" onkeyup="showHint(this.value)"
+                            <input type="hidden" name="start" class="input" id="result" onkeyup="showHint(this.value)"
                                 placeholder="result here" readonly="" />
                         </form>
                         <p>Status: <span id="txtHint"></span></p>
@@ -133,7 +133,7 @@
                     ?>
                                         <tr>
                                             <td><?php echo $rows["nombre"]; ?></td>
-                                            <td><?php echo $rows["fechayhora"]; ?></td>
+                                            <td><?php echo $rows["fecha"]; ?></td>
                                             <td>
 
                                                 <a href="editar_registro.php?cp=<?php echo $rows['id']; ?>"
