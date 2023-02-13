@@ -33,8 +33,10 @@ $objDBO->conexion();
       $trabajadores = array();
 $trabajadores = $objDB->trabajadoresPorId($q);
 
-$codTrab = $trabajadores[0]['trab'];
-// $nombTrab = $trabajadores[0]['nombr'];
+
+
+if($trabajadores == 0){ echo 'no esta registrado en bd'; }else{
+  $codTrab = $trabajadores[0]['trab'];
 
       $ejecucion = $objDBO->Operaciones("INSERT INTO registros(codigo, nombre,fecha, hora) VALUES ($q ,'$codTrab','$fecha','$horaActual')");
 
@@ -43,15 +45,17 @@ $codTrab = $trabajadores[0]['trab'];
       }else{
           echo "Fallo del server";
       }
+
+    }
       
     }else{
       
-      echo 'ya esta registrado';
-   
-
-    
+      echo 'ya esta registrado';   
 
   }
+
+  
+  
 
   $objDBO->close();
 ?>
