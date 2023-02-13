@@ -14,7 +14,7 @@ function fecha (){
 $fecha = fecha();
 $horaActual = date('h:i:s');
 
-$q = $_REQUEST["q"];
+$codigoTrab = $_REQUEST["q"];
 
 // echo $q;
 
@@ -23,7 +23,7 @@ $objDB = new ExtraerDatos();
 
 
   $regsitros = array();
-  $regsitros = $objDB->personasPorId($q, $fecha);
+  $regsitros = $objDB->personasPorId($codigoTrab, $fecha);
 
 $objDBO = new DBConfig();
 $objDBO->config();
@@ -31,14 +31,14 @@ $objDBO->conexion();
 
     if($regsitros == 0){
       $trabajadores = array();
-$trabajadores = $objDB->trabajadoresPorId($q);
+$trabajadores = $objDB->trabajadoresPorId($codigoTrab);
 
 
 
 if($trabajadores == 0){ echo 'no esta registrado en bd'; }else{
   $codTrab = $trabajadores[0]['trab'];
 
-      $ejecucion = $objDBO->Operaciones("INSERT INTO registros(codigo, nombre,fecha, hora) VALUES ($q ,'$codTrab','$fecha','$horaActual')");
+      $ejecucion = $objDBO->Operaciones("INSERT INTO registros(codigo, nombre,fecha, hora) VALUES ($codigoTrab ,'$codTrab','$fecha','$horaActual')");
 
       if($ejecucion){
           echo 'Registrado';
