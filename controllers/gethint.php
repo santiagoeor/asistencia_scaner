@@ -33,7 +33,7 @@ if ($q !="") {
       }
     }
   }*/
-$result=mysqli_query($con,"SELECT * FROM registros WHERE nombre='$q' AND fecha='2023-02-12'");
+$result=mysqli_query($con,"SELECT * FROM registros WHERE nombre='$q' AND fecha='2023-02-13'");
 $rowcount=mysqli_num_rows($result);
 if($rowcount==0){
 $ret=mysqli_query($con,"INSERT INTO `registros`(nombre,fecha, hora) VALUES ('$q','$fecha','$horaActual')");

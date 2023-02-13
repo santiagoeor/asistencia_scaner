@@ -11,7 +11,7 @@ function showHint(str) {
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "../controllers/gethint.php?q=" + str, true);
+    xmlhttp.open("GET", "../logica/registScaner.php?q=" + str, true);
     xmlhttp.send();
   }
 }
