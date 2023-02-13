@@ -22,10 +22,18 @@ class ConsultasDB extends DBConfig {
 class ExtraerDatos extends ConsultasDB
 {
 	//Detalle de personas
-	function personasPorId($nombre, $fecha, $start = 0, $regsCant = 0){
-		$sql = "SELECT * from registros where nombre='$nombre' AND fecha='$fecha'";
+	function personasPorId($codigo, $fecha, $start = 0, $regsCant = 0){
+		$sql = "SELECT * from registros where codigo=$codigo AND fecha='$fecha'";
 		if ($regsCant > 0)
-			  $sql = "SELECT * from registros where nombre='$nombre' AND fecha='$fecha' $start, $regsCant";
+			  $sql = "SELECT * from registros where codigo=$codigo AND fecha='$fecha' $start, $regsCant";
+		$lista = $this->consulta_generales($sql);	
+		return $lista;
+	}
+
+	function trabajadoresPorId($codigo, $start = 0, $regsCant = 0){
+		$sql = "SELECT * from trabajadores where codigo='$codigo'";
+		if ($regsCant > 0)
+			  $sql = "SELECT * from trabajadores where codigo='$codigo' $start, $regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
@@ -70,12 +78,13 @@ class ExtraerDatos extends ConsultasDB
 
 // $objDB = new ExtraerDatos();
 
-// $q = 'santiago';
-// $fech = '2023-02-13';
-//   $prods = array();
-//   $prods = $objDB->personasPorId($q, $fech);
+// // $q = 'santiago';
+// // $fech = '2023-02-13';
+// $codigo = 12;
+//   $trabajadores = array();
+//   $trabajadores = $objDB->trabajadoresPorId($codigo);
 
-//     if($prods== 0){
+//     if($trabajadores== 0){
 // 	echo 'no hay';
 //   }else{
 // 	echo 'si hay';

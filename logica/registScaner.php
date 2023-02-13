@@ -20,16 +20,23 @@ $q = $_REQUEST["q"];
 
 $objDB = new ExtraerDatos();
 
-  $prods = array();
-  $prods = $objDB->personasPorId($q, $fecha);
+
+
+  $regsitros = array();
+  $regsitros = $objDB->personasPorId($q, $fecha);
 
 $objDBO = new DBConfig();
 $objDBO->config();
 $objDBO->conexion();
 
-    if($prods == 0){
+    if($regsitros == 0){
+      $trabajadores = array();
+$trabajadores = $objDB->trabajadoresPorId($q);
 
-      $ejecucion = $objDBO->Operaciones("INSERT INTO registros(nombre,fecha, hora) VALUES ('$q','$fecha','$horaActual')");
+$codTrab = $trabajadores[0]['trab'];
+// $nombTrab = $trabajadores[0]['nombr'];
+
+      $ejecucion = $objDBO->Operaciones("INSERT INTO registros(codigo, nombre,fecha, hora) VALUES ($q ,'$codTrab','$fecha','$horaActual')");
 
       if($ejecucion){
           echo 'Registrado';
